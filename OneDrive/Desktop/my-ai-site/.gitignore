@@ -1,0 +1,82 @@
+# -----------------------
+# Python
+# -----------------------
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+*.whl
+*.egg
+pip-wheel-metadata/
+
+# Byte-compiled / DLL files
+*.so
+*.dll
+*.pyd
+
+# -----------------------
+# Flask
+# -----------------------
+instance/
+.webassets-cache
+
+# -----------------------
+# Jupyter / IPython
+# -----------------------
+.ipynb_checkpoints
+profile_default/
+.ipython/
+
+# -----------------------
+# Testing / Coverage
+# -----------------------
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.pytest_cache/
+nosetests.xml
+coverage.xml
+*.cover
+
+# -----------------------
+# Logs
+# -----------------------
+*.log
+pip-log.txt
+pip-delete-this-directory.txt
+
+# -----------------------
+# Temporary / AI outputs
+# -----------------------
+outputs/
+temp/
+*.png
+*.jpg
+*.jpeg
+
+# -----------------------
+# IDE / Editor
+# -----------------------
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# -----------------------
+# Other
+# -----------------------
+.env
+.local
+.DS_Store

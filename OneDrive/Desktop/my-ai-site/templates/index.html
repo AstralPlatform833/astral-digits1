@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Personal AI Photo Editor</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #1e1e2f, #2b2b45);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background: #2f2f4f;
+    padding: 30px;
+    border-radius: 12px;
+    width: 420px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.5);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+input[type="file"],
+textarea {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 8px;
+    border-radius: 6px;
+    border: none;
+}
+
+textarea {
+    height: 70px;
+    resize: none;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background: #00bfff;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #009acd;
+}
+
+.loading {
+    display: none;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.preview {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.preview img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>AI Photo Editor</h1>
+
+    <form id="editForm" method="POST" enctype="multipart/form-data">
+        
+        <label>Upload Main Image</label>
+        <input type="file" name="image1" required>
+
+        <label>Optional Second Image (Pose / Person)</label>
+        <input type="file" name="image2">
+
+        <label>Describe What You Want</label>
+        <textarea name="prompt" placeholder="Example: Put us on a sunset beach with realistic lighting"></textarea>
+
+        <button type="submit">Generate</button>
+
+        <div class="loading" id="loading">
+            Processing... please wait 🔥
+        </div>
+    </form>
+
+    <div class="preview" id="preview"></div>
+</div>
+
+<script>
+const form = document.getElementById("editForm");
+const loading = document.getElementById("loading");
+const preview = document.getElementById("preview");
+
+form.addEventListener("submit", async function(e) {
+    e.preventDefault();
+    loading.style.display = "block";
+    preview.innerHTML = "";
+
+    const formData = new FormData(form);
+
+    const response = await fetch("/", {
+        method: "POST",
+        body: formData
+    });
+
+    const blob = await response.blob();
+    const imgURL = URL.createObjectURL(blob);
+
+    loading.style.display = "none";
+    preview.innerHTML = `<img src="${imgURL}">`;
+});
+</script>
+
+</body>
+</html>

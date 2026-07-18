@@ -1,0 +1,24 @@
+/* [project]/app/custom.css [app-client] (css) */
+@keyframes nocode-drag-hint {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgb(var(--primary) / 0);
+    border-color: rgb(var(--border));
+  }
+
+  50% {
+    box-shadow: 0 0 0 3px rgb(var(--primary) / .35);
+    border-color: rgb(var(--primary));
+  }
+}
+
+.nocode-drag-hint {
+  animation: 1s ease-in-out 2 nocode-drag-hint;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nocode-drag-hint {
+    animation: none;
+  }
+}
+
+/*# sourceMappingURL=app_custom_css_0w3-wzy._.single.css.map*/

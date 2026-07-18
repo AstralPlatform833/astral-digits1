@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/app/custom.css"],"sourcesContent":["/* Custom CSS for this template */\n/* Add your custom styles here */\n\n/* No-code build mode: briefly flash the draggable blocks (3× over 1.5s) when the\n   layout is unlocked, so it's clear the components can be dragged to reorder. */\n@keyframes nocode-drag-hint {\n  0%,\n  100% {\n    box-shadow: 0 0 0 0 rgb(var(--primary) / 0);\n    border-color: rgb(var(--border));\n  }\n  50% {\n    box-shadow: 0 0 0 3px rgb(var(--primary) / 0.35);\n    border-color: rgb(var(--primary));\n  }\n}\n.nocode-drag-hint {\n  animation: nocode-drag-hint 1s ease-in-out 2;\n}\n@media (prefers-reduced-motion: reduce) {\n  .nocode-drag-hint {\n    animation: none;\n  }\n}\n"],"names":[],"mappings":"AAKA;;;;;;;;;;;;AAWA;;;;AAGA;EACE"}}]
+}
